@@ -6,6 +6,7 @@ public class Proyecto_Odontologia {
         System.out.print("Hola como estas");
         // Que onda XD
         System.out.println("Prueba 2 jajajaja");
+        System.out.println("Modificado por JC");
     }
     
 }
