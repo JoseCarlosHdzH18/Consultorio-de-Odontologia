@@ -1,5 +1,4 @@
 package LogIn;
-
 import javax.swing.JOptionPane;
 import proyecto_odontologia.Proyecto_Odontologia;
 
@@ -7,8 +6,8 @@ public class LogIn extends javax.swing.JFrame {
 
     public LogIn() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -23,6 +22,7 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario:");
 
+        tf_Usuario.setText("admin");
         tf_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tf_UsuarioActionPerformed(evt);
@@ -37,6 +37,8 @@ public class LogIn extends javax.swing.JFrame {
                 btn_aceptarActionPerformed(evt);
             }
         });
+
+        tf_contra.setText("1234");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

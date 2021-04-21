@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class Proyecto_Odontologia { 
     //https://fernando-gaitan.com.ar/conectar-java-con-mysql-en-netbeans/
-    private static Connection conexion = null;
+    public static Connection conexion = null;
     
     public static void main(String[] args) {
         try {
