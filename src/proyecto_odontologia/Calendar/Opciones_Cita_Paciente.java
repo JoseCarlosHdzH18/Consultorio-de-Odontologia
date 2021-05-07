@@ -23,14 +23,14 @@ import javax.swing.JTextArea;
 
 public class Opciones_Cita_Paciente extends javax.swing.JFrame {
     public JFrame des=new JFrame();
-    String Descripcion="No hay Descripcion", Motivo;
+    String Descripcion="No hay Descripcion", Motivo, text_Nom="?";
     JTextArea ta;
-    public Opciones_Cita_Paciente(String nombre, String telefono, String inicio, String fin, String correo, String Descripcion, String Motivo) {
+    public Opciones_Cita_Paciente(String nombre, String telefono, String inicio, String fin, String correo, String Descripcion, String Motivo, String id) {
         initComponents();
         btn_sel_usu.setVisible(false);
         btn_agregar.setVisible(false);
         txf_tel.setText(telefono);
-        txf_nombre.setText(nombre);
+        txf_nombre.setText(id+".- "+nombre);
         txf_inicio.setText(inicio);
         txf_final.setText(fin);
         txf_mot.setText(Motivo);
@@ -268,7 +268,8 @@ public class Opciones_Cita_Paciente extends javax.swing.JFrame {
             }
         });
         if(btn_sel_usu.isVisible()==false){
-            String sql="SELECT * FROM `calendario` WHERE `paciente` = "+txf_nombre.getText();
+            String sep[]= txf_nombre.getText().split(".- ");
+            String sql="SELECT * FROM `calendario` WHERE `Num_cita` = "+sep[0];
             try {
 //                 JOptionPane.showMessageDialog(null,"EEENNNTTTRRRAAA");
                 Connection          cn = Conectar.obtener();
@@ -320,8 +321,8 @@ public class Opciones_Cita_Paciente extends javax.swing.JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 //                            JOptionPane.showMessageDialog(null, n.getText());
-                            String sep[]= n.getText().split(".- ");
-                            txf_nombre.setText(sep[1]);
+//                            String sep[]= n.getText().split(".- ");
+                            txf_nombre.setText(n.getText());
 //                            btn_Des.enable();
                             btn_Des.setVisible(true);
 
@@ -350,7 +351,7 @@ public class Opciones_Cita_Paciente extends javax.swing.JFrame {
             Logger.getLogger(Citas_del_dia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_sel_usuActionPerformed
-
+ 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
 //        Descripcion=null;
 //        JOptionPane.showMessageDialog(null,"/*/**/");
@@ -378,14 +379,16 @@ public class Opciones_Cita_Paciente extends javax.swing.JFrame {
         fin = txf_final.getText();
         motivo = txf_mot.getText();
         desc = Descripcion;
+        String tel = txf_tel.getText();
+        String correo = txf_correo.getText();
         if("".equals(fecha)||"".equals(nombre)||"".equals(inicio)||"".equals(fin)||"".equals(motivo)){
             JOptionPane.showMessageDialog(null,"Se requiere que todos los campos sean llenados");
             correcto=false;
         }
         
         
-        String sql="INSERT INTO `bd_dentista`.`calendario` (`Fecha` ,`Hora_inicio`,`Hora_Final`,`Motivo`,`Descripcion`,`paciente`) "
-                                                + "VALUES ('"+fecha+"','"+inicio+"','"+fin+"','"+motivo+"','"+desc+"','"+nombre+"')";                                                
+        String sql="INSERT INTO `bd_dentista`.`calendario` (`Fecha` ,`Hora_inicio`,`Hora_Final`,`Motivo`,`Descripcion`,`paciente`, `Telefono`, `correo`) "
+                                                + "VALUES ('"+fecha+"','"+inicio+"','"+fin+"','"+motivo+"','"+desc+"','"+nombre+"','"+tel+"','"+correo+"')";                                                
         if(correcto){
             try {
                 Connection cn = Conectar.obtener();

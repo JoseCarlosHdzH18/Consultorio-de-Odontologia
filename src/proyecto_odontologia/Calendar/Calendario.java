@@ -65,14 +65,15 @@ public class Calendario extends javax.swing.JPanel {
             ResultSet res_usu = con_usu.executeQuery();
             while(resultado.next()){
                 String fecha_seleccionada = cal.getDate().toLocaleString();// Guarda esto:   20/04/2021 04:04:05 PM
+                String id = resultado.getString("Num_cita");
                 String paciente = resultado.getString("paciente");
                 String fecha_Mysql = resultado.getString("Fecha");
                 String Hora_inicio_Mysql = resultado.getString("Hora_Inicio");
                 String Hora_final_Mysql = resultado.getString("Hora_Final");
                 String Descripcion = resultado.getString("Descripcion");
                 String Motivo = resultado.getString("Motivo");
-                String Tel ="FALTA BUSCARLO EN MYSQL";//= res_usu.getString("Telefono");
-                String correo="FALTA BUSCARLO EN MYSQL";// = res_usu.getString("Correo");
+                String Tel =resultado.getString("Telefono");//= res_usu.getString("Telefono");
+                String correo=resultado.getString("correo");// = res_usu.getString("Correo");
                 fecha_sel_mod = procesamiento_fecha(fecha_seleccionada);
                 System.out.println(fecha_sel_mod+"    /*/ "+fecha_Mysql + "  /*/  ");
                 
@@ -82,7 +83,7 @@ public class Calendario extends javax.swing.JPanel {
                         btn_fila=0;
                     }
                     try{
-                        btn = new Boton_de_Citas(btn_col*ancho_boton, btn_fila*alto_boton, ancho_boton, alto_boton, paciente,Hora_inicio_Mysql,Hora_final_Mysql, Tel, correo, Descripcion, Motivo);
+                        btn = new Boton_de_Citas(btn_col*ancho_boton, btn_fila*alto_boton, ancho_boton, alto_boton, paciente,Hora_inicio_Mysql,Hora_final_Mysql, Tel, correo, Descripcion, Motivo,id);
                         Citas_del_dia.Contenedor_Citas.add(btn);
                         btn.setVisible(true);
                         citas.add(btn);
@@ -218,7 +219,7 @@ public class Calendario extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel4.setBackground(new java.awt.Color(193, 213, 232));
         jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel4.setAlignmentX(0.0F);
         jPanel4.setAlignmentY(0.0F);
@@ -235,7 +236,7 @@ public class Calendario extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel5.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel5.setBackground(new java.awt.Color(193, 213, 232));
         jPanel5.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel5.setAlignmentX(0.0F);
         jPanel5.setAlignmentY(0.0F);
