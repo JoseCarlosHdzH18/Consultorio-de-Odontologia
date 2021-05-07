@@ -1,14 +1,25 @@
 package proyecto_odontologia.Calendar;
 
+import ConexionMySQL.Conectar;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Citas_del_dia extends javax.swing.JPanel {
+    
 
+    
     public Citas_del_dia() {
         initComponents();
         this.setVisible(true);
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -17,7 +28,7 @@ public class Citas_del_dia extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        btn_Agregar_Cita = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         Contenedor_Citas = new javax.swing.JPanel();
 
@@ -32,24 +43,25 @@ public class Citas_del_dia extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 204, 153));
         jPanel3.setPreferredSize(new java.awt.Dimension(515, 66));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("AQUI SE DARÁ LA OPCION DE AGREGAR UNA NUEVA CITA");
+        btn_Agregar_Cita.setBackground(new java.awt.Color(0, 204, 0));
+        btn_Agregar_Cita.setText("Agregar Cita");
+        btn_Agregar_Cita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Agregar_CitaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btn_Agregar_Cita, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_Agregar_Cita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
@@ -111,7 +123,7 @@ public class Citas_del_dia extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,10 +132,25 @@ public class Citas_del_dia extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_Agregar_CitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Agregar_CitaActionPerformed
+        Opciones_Cita_Paciente a= new Opciones_Cita_Paciente();
+        a.txf_inicio.setText("00:00:00");
+        a.txf_final.setText("00:00:00");
+        a.txf_nombre.disable();
+//        a.btn_Des.disable();
+        a.btn_Des.setVisible(false);
+        a.btn_agregar.setVisible(true);
+        a.btn_sel_usu.setVisible(true);
+        
+        a.repaint();
+        a.setVisible(true);
+        
+    }//GEN-LAST:event_btn_Agregar_CitaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JPanel Contenedor_Citas;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_Agregar_Cita;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

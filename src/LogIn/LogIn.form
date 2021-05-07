@@ -82,6 +82,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_aceptar">
       <Properties>
+        <Property name="mnemonic" type="int" value="97"/>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <Events>
