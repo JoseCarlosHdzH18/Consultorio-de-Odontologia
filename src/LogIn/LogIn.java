@@ -31,6 +31,7 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña:");
 
+        btn_aceptar.setMnemonic('a');
         btn_aceptar.setText("Aceptar");
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
