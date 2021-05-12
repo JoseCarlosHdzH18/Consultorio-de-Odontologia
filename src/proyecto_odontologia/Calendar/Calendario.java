@@ -75,7 +75,8 @@ public class Calendario extends javax.swing.JPanel {
                 String Tel =resultado.getString("Telefono");//= res_usu.getString("Telefono");
                 String correo=resultado.getString("correo");// = res_usu.getString("Correo");
                 fecha_sel_mod = procesamiento_fecha(fecha_seleccionada);
-                System.out.println(fecha_sel_mod+"    /*/ "+fecha_Mysql + "  /*/  ");
+                
+//                System.out.println(fecha_sel_mod+"    /*/ "+fecha_Mysql + "  /*/  ");
                 
                 if(fecha_Mysql.equals(fecha_sel_mod)){
                     if(tamano_panel<=btn_fila*sep){

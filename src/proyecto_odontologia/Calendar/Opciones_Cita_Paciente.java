@@ -290,7 +290,7 @@ public class Opciones_Cita_Paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DesActionPerformed
 
     private void btn_sel_usuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sel_usuActionPerformed
-        String sql="SELECT * FROM usuario";
+        String sql="SELECT * FROM paciente";
         try {
             
             JFrame usuarios=new JFrame();
