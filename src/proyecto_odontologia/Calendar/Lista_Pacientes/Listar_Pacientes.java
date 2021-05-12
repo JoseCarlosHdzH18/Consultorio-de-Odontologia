@@ -281,8 +281,9 @@ public class Listar_Pacientes extends javax.swing.JPanel {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Listar_Pacientes.class.getName()).log(Level.SEVERE, null, ex);
         } catch(HeadlessException | NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "ELIMINAR PACIENTE: "+ex);
+            JOptionPane.showMessageDialog(null, "ELIMINAR PACIENTE "+ex);
         }
+        
     }//GEN-LAST:event_btn_borrarActionPerformed
 
     private void btn_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarActionPerformed
@@ -312,7 +313,7 @@ public class Listar_Pacientes extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "AGREGAR PACIENTE: "+ex);
             }
         }else{
-            JOptionPane.showMessageDialog(null, "SE AGREGA LA INF EN LA ULTIMA FILA: "+(seleccion+1)+" , "+tabla.getRowCount());
+            JOptionPane.showMessageDialog(null, "SE AGREGA LA INF EN LA ULTIMA FILA "+(seleccion+1)+" , "+tabla.getRowCount());
         }
     }//GEN-LAST:event_btn_AgregarActionPerformed
 
