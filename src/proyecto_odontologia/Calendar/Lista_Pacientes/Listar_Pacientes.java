@@ -303,6 +303,7 @@ public class Listar_Pacientes extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "AGREGADO CORRECTAMENTE");
                     actualizar();
                 }else{
+                    
                     JOptionPane.showMessageDialog(null, "NO SE HA INGRESADO ALGUN NOMBRE");
                 }
             } catch (SQLException ex) {
