@@ -270,7 +270,6 @@ public class Listar_Pacientes extends javax.swing.JPanel {
 
     private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
         try {
-            
             String sql="DELETE FROM `bd_dentista` . `paciente` WHERE id = '"+tabla.getValueAt(seleccion, 0)+"';";
             Connection cn = Conectar.obtener();
             PreparedStatement ps=cn.prepareStatement(sql);
@@ -315,7 +314,6 @@ public class Listar_Pacientes extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "SE AGREGA LA INF EN LA ULTIMA FILA: "+(seleccion+1)+" , "+tabla.getRowCount());
         }
-        
     }//GEN-LAST:event_btn_AgregarActionPerformed
 
 
