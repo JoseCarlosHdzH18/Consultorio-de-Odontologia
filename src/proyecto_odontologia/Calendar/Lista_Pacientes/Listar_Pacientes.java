@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 public class Listar_Pacientes extends javax.swing.JPanel {
     int seleccion=0;
-    
+    /*Hola Hola :)*/
     String nom, tel, correo, dir, enf;
     public Listar_Pacientes() {
         initComponents();
